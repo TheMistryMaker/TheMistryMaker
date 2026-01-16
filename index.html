@@ -141,8 +141,8 @@
             background-color: var(--primary-white);
             box-shadow: var(--shadow-sm);
             z-index: 1000;
-            padding: 0.8rem 0; /* Reduced padding for shorter header */
-            height: 80px; /* Much shorter height */
+            padding: 1rem 0; /* Reduced padding for shorter header */
+            height: 90px; /* Much shorter height */
             display: flex;
             align-items: center;
         }
@@ -161,14 +161,14 @@
             gap: 1rem; /* Side by side spacing */
         }
 
-        /* LOGO SIZES - Reduced for shorter header */
+        /* LOGO SIZES - Maintain reasonable size */
         .logo-symbol {
-            height: 45px !important; /* Reduced from 90px */
+            height: 60px !important; /* Original reasonable size */
             width: auto;
         }
 
         .logo-text {
-            height: 30px !important; /* Reduced from 135px */
+            height: 40px !important; /* Original reasonable size */
             width: auto;
         }
 
@@ -183,7 +183,7 @@
             text-decoration: none;
             color: var(--primary-black);
             font-weight: 600;
-            font-size: 1rem; /* Slightly smaller */
+            font-size: 1rem;
             transition: color 0.3s ease;
             position: relative;
         }
@@ -209,7 +209,7 @@
 
         /* Get Started button in nav */
         .nav-links .btn-primary {
-            padding: 0.8rem 1.8rem; /* Slightly smaller */
+            padding: 0.8rem 1.8rem;
             font-size: 1rem;
             background-color: var(--primary-black);
             color: var(--primary-white) !important;
@@ -224,7 +224,7 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.8rem; /* Smaller toggle */
+            font-size: 1.8rem;
             cursor: pointer;
             color: var(--primary-black);
         }
@@ -521,18 +521,18 @@
         .footer-logo-container {
             display: flex;
             align-items: center;
-            gap: 0.75rem; /* Side by side, similar to header */
+            gap: 0.75rem;
         }
 
         .footer-logo .logo-symbol {
             filter: invert(1);
-            height: 35px !important; /* Reduced size for footer */
+            height: 40px !important; /* Slightly smaller for footer */
             width: auto;
         }
 
         .footer-logo .logo-text {
             filter: invert(1);
-            height: 25px !important; /* Reduced size for footer */
+            height: 30px !important; /* Slightly smaller for footer */
             width: auto;
         }
 
@@ -597,15 +597,15 @@
             
             header {
                 height: 80px;
-                padding: 0.7rem 0;
+                padding: 0.8rem 0;
             }
             
             .logo-symbol {
-                height: 40px !important;
+                height: 50px !important;
             }
             
             .logo-text {
-                height: 28px !important;
+                height: 35px !important;
             }
             
             .nav-links {
@@ -620,7 +620,7 @@
             
             header {
                 height: 75px;
-                padding: 0.6rem 0;
+                padding: 0.7rem 0;
             }
             
             .nav-links {
@@ -655,11 +655,11 @@
             }
             
             .logo-symbol {
-                height: 35px !important;
+                height: 45px !important;
             }
             
             .logo-text {
-                height: 25px !important;
+                height: 30px !important;
             }
             
             .logo-container {
@@ -667,11 +667,11 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 30px !important;
+                height: 35px !important;
             }
             
             .footer-logo .logo-text {
-                height: 20px !important;
+                height: 25px !important;
             }
         }
 
@@ -689,11 +689,11 @@
             }
             
             .logo-symbol {
-                height: 30px !important;
+                height: 40px !important;
             }
             
             .logo-text {
-                height: 20px !important;
+                height: 28px !important;
             }
             
             body {
@@ -702,7 +702,7 @@
             
             header {
                 height: 70px;
-                padding: 0.5rem 0;
+                padding: 0.6rem 0;
             }
             
             .logo-container {
@@ -715,21 +715,21 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 25px !important;
+                height: 30px !important;
             }
             
             .footer-logo .logo-text {
-                height: 18px !important;
+                height: 20px !important;
             }
         }
 
         @media (max-width: 480px) {
             .logo-symbol {
-                height: 25px !important;
+                height: 35px !important;
             }
             
             .logo-text {
-                height: 18px !important;
+                height: 25px !important;
             }
             
             body {
@@ -738,7 +738,7 @@
             
             header {
                 height: 65px;
-                padding: 0.4rem 0;
+                padding: 0.5rem 0;
             }
             
             .logo-container {
@@ -750,11 +750,11 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 20px !important;
+                height: 25px !important;
             }
             
             .footer-logo .logo-text {
-                height: 15px !important;
+                height: 18px !important;
             }
         }
     </style>
@@ -982,7 +982,7 @@
                     <p>Our launch is funded and informed by our founder's first venture: a traditional karate dojo. This serves as our initial funding engine, live research lab, and physical embodiment of our educational philosophy—discipline, growth, and mastery.</p>
                 </div>
                 
-                <div class="timeline-item">
+                .timeline-item {
                     <h3>The Vision Realized</h3>
                     <p>We're building Cooper from the ground up with authenticity, testing methods and features in a real community setting before scaling to classrooms worldwide.</p>
                 </div>
@@ -1131,6 +1131,7 @@
     </script>
 </body>
 </html>
+
 
 
 
