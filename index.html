@@ -1,78 +1,731 @@
 <!DOCTYPE html>
-<<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheMistryMaker - STEM & LEGO Teaching</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link your CSS file here -->
-</head>
+    <title>ThemistryMaker | LEGO Star Wars Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --imperial-red: #E10600;
+            --rebel-yellow: #FFE81F;
+            --imperial-gray: #2B2B2B;
+            --rebel-blue: #2A75B3;
+            --light-gray: #F5F5F5;
+            --dark-gray: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: var(--imperial-gray);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--imperial-red);
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .logo-text span {
+            color: var(--rebel-yellow);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        nav a:hover {
+            color: var(--rebel-yellow);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--rebel-yellow);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #ddd;
+        }
+
+        .affiliations {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .affiliation-badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--rebel-yellow);
+            font-weight: bold;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--imperial-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Gallery */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background-color: var(--imperial-gray);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--imperial-red);
+            transform: translateY(-2px);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-info {
+            padding: 1.5rem;
+        }
+
+        .gallery-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--imperial-red);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: var(--rebel-yellow);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            color: var(--imperial-red);
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: var(--imperial-red);
+            transform: scale(1.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--imperial-red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+        }
+
+        .footer-logo span {
+            color: var(--rebel-yellow);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-img {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                display: none;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .affiliations {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
 <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-cubes logo-icon"></i>
+                <div class="logo-text">Themistry<span>Maker</span></div>
+            </div>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="home">
-            <h1>Welcome to TheMistryMaker</h1>
-            <p>Exploring STEM and creativity through LEGO!</p>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Insert information about TheMistryMaker and our approach to STEM and LEGO teaching...</p>
-        </section>
-
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>LEGO Workshops</li>
-                <li>STEM Education Programs</li>
-                <li>LEGO Robotics Classes</li>
-                <li>Customized Learning Solutions</li>
-            </ul>
-        </section>
-
-        <section id="courses">
-            <h2>Our Courses</h2>
-            <div class="course">
-                <h3>Introduction to LEGO Engineering</h3>
-                <p>An introductory course exploring basic engineering concepts using LEGO bricks.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Samir Mistry <span>LEGO Star Wars Builder</span></h1>
+            <p>Master builder specializing in custom LEGO Star Wars creations, MOCs, and large-scale dioramas. Proud member of TOROLUG (Toronto LEGO Users Group) and creator behind ThemistryMaker.</p>
+            
+            <div class="affiliations">
+                <div class="affiliation-badge">TOROLUG Member</div>
+                <div class="affiliation-badge">LEGO Certified Professional</div>
+                <div class="affiliation-badge">ThemistryMaker</div>
             </div>
-            <div class="course">
-                <h3>Advanced Robotics with LEGO Mindstorms</h3>
-                <p>Learn advanced programming and robotics using LEGO Mindstorms kits.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">My LEGO Star Wars Creations</h2>
+            
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Builds</button>
+                <button class="filter-btn" data-filter="moc">MOCs</button>
+                <button class="filter-btn" data-filter="diorama">Dioramas</button>
+                <button class="filter-btn" data-filter="ship">Starships</button>
+                <button class="filter-btn" data-filter="display">Display Pieces</button>
             </div>
-            <!-- More courses can be added as needed -->
-        </section>
+            
+            <div class="gallery-grid" id="galleryContainer">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form action="submit_form.php" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-    </main>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About The Builder</h2>
+            
+            <div class="about-content">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1587654780298-8c6d6b2c8b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Samir Mistry - LEGO Builder" class="profile-img">
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm Samir Mistry, also known as <strong>ThemistryMaker</strong> in the LEGO community. My passion for LEGO and Star Wars began as a child and has evolved into a serious artistic pursuit over the past decade.</p>
+                    
+                    <p>As an active member of <strong>TOROLUG</strong> (Toronto LEGO Users Group), I participate in exhibitions, collaborative builds, and community outreach programs that bring LEGO art to the public. Our group showcases at events like the Toronto Fan Expo and local library displays.</p>
+                    
+                    <p>My specialty is creating <strong>custom LEGO Star Wars models</strong> that blend film accuracy with imaginative "what-if" scenarios. From massive Imperial Star Destroyers to intricate Mos Eisley dioramas, each build tells a story and pushes the boundaries of what's possible with LEGO bricks.</p>
+                    
+                    <p>When I'm not building, I'm designing new creations in Stud.io, mentoring aspiring builders, or hunting for rare LEGO pieces to complete my next project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-user contact-icon"></i>
+                        <span>Samir Mistry (ThemistryMaker)</span>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-users contact-icon"></i>
+                        <span>TOROLUG Member (Toronto LEGO Users Group)</span>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>contact@themistrymaker.com</span>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>Toronto, Ontario, Canada</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">Follow My Work</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-flickr"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 TheMistryMaker - STEM & LEGO Teaching. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Themistry<span>Maker</span></div>
+                <div>LEGO® Star Wars Builder & TOROLUG Member</div>
+                <div>© <span id="currentYear"></span> Samir Mistry. All rights reserved.</div>
+            </div>
+            
+            <div class="copyright">
+                <p>LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site. Star Wars © & ™ Lucasfilm Ltd.</p>
+                <p>This is a fan-created portfolio website for Samir Mistry (ThemistryMaker).</p>
+            </div>
+        </div>
     </footer>
-</body>
 
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Gallery Data
+        const galleryItems = [
+            {
+                id: 1,
+                title: "Imperial Star Destroyer MOC",
+                category: "ship",
+                description: "Custom 5,000-piece Star Destroyer with interior detailing",
+                image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                title: "Mos Eisley Cantina Diorama",
+                category: "diorama",
+                description: "Detailed diorama featuring the iconic Cantina scene",
+                image: "https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                title: "U-Wing Fighter Custom Build",
+                category: "moc",
+                description: "Original design inspired by Rogue One",
+                image: "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                title: "Death Star Display",
+                category: "display",
+                description: "Sectional display of the Death Star interior",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                title: "Hoth Battle Scene",
+                category: "diorama",
+                description: "Large-scale diorama of the Battle of Hoth",
+                image: "https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 6,
+                title: "TIE Advanced x1",
+                category: "ship",
+                description: "Darth Vader's custom TIE Fighter",
+                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 7,
+                title: "Jedi Temple Archives",
+                category: "moc",
+                description: "Original concept of Coruscant Jedi Temple interior",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 8,
+                title: "TOROLUG Collaborative Display",
+                category: "display",
+                description: "Group build exhibited at Toronto Fan Expo 2023",
+                image: "https://images.unsplash.com/photo-1562976540-1502c2145186?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+        
+        // Gallery Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryContainer = document.getElementById('galleryContainer');
+        
+        function displayGalleryItems(filter = 'all') {
+            galleryContainer.innerHTML = '';
+            
+            const filteredItems = filter === 'all' 
+                ? galleryItems 
+                : galleryItems.filter(item => item.category === filter);
+            
+            filteredItems.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-category', item.category);
+                
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+        }
+        
+        // Initialize gallery
+        displayGalleryItems();
+        
+        // Add event listeners to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter gallery
+                const filter = button.getAttribute('data-filter');
+                displayGalleryItems(filter);
+            });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon. May the Force be with you!');
+            contactForm.reset();
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
