@@ -520,18 +520,19 @@
         .footer-logo-container {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem; /* Same gap as header */
         }
 
+        /* BOTTOM LOGOS - 2X BIGGER (same size as header) */
         .footer-logo .logo-symbol {
             filter: invert(1);
-            height: 80px !important; /* 2x from 40px */
+            height: 120px !important; /* SAME SIZE AS HEADER - 2x bigger */
             width: auto;
         }
 
         .footer-logo .logo-text {
             filter: invert(1);
-            height: 60px !important; /* 2x from 30px */
+            height: 80px !important; /* SAME SIZE AS HEADER - 2x bigger */
             width: auto;
         }
 
@@ -583,6 +584,14 @@
             .logo-text {
                 height: 70px !important;
             }
+            
+            .footer-logo .logo-symbol {
+                height: 100px !important;
+            }
+            
+            .footer-logo .logo-text {
+                height: 70px !important;
+            }
         }
 
         @media (max-width: 992px) {
@@ -620,11 +629,11 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 70px !important;
+                height: 85px !important;
             }
             
             .footer-logo .logo-text {
-                height: 50px !important;
+                height: 60px !important;
             }
         }
 
@@ -682,11 +691,11 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 60px !important;
+                height: 75px !important;
             }
             
             .footer-logo .logo-text {
-                height: 40px !important;
+                height: 50px !important;
             }
         }
 
@@ -730,11 +739,11 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 50px !important;
+                height: 65px !important;
             }
             
             .footer-logo .logo-text {
-                height: 35px !important;
+                height: 45px !important;
             }
         }
 
@@ -765,11 +774,11 @@
             }
             
             .footer-logo .logo-symbol {
-                height: 40px !important;
+                height: 55px !important;
             }
             
             .footer-logo .logo-text {
-                height: 30px !important;
+                height: 40px !important;
             }
         }
     </style>
