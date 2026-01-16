@@ -1,3 +1,6 @@
+I'll add the text logo at the bottom and increase the logos to 3x bigger than the current size (so 9x bigger than the original!). Here's the complete code:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +48,7 @@
             color: var(--primary-black);
             background-color: var(--primary-white);
             overflow-x: hidden;
-            padding-top: 120px; /* Increased for HUGE logos */
+            padding-top: 180px; /* HUGE for MASSIVE logos (9x original) */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -131,7 +134,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Header & Navigation - HUGE LOGOS */
+        /* Header & Navigation - MASSIVE LOGOS (9x original) */
         header {
             position: fixed;
             top: 0;
@@ -140,8 +143,8 @@
             background-color: var(--primary-white);
             box-shadow: var(--shadow-sm);
             z-index: 1000;
-            padding: 1.5rem 0;
-            height: 120px; /* HUGE height for HUGE logos */
+            padding: 2rem 0; /* Increased padding */
+            height: 180px; /* MASSIVE height for MASSIVE logos */
         }
 
         .nav-container {
@@ -154,20 +157,20 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 2rem; /* Increased gap for HUGE logos */
+            gap: 3rem; /* HUGE gap for MASSIVE logos */
         }
 
-        /* LOGO FIXES - 3X BIGGER THAN ORIGINAL (40px/30px → 120px/90px) */
+        /* LOGO FIXES - 9X BIGGER THAN ORIGINAL (40px/30px → 360px/270px) */
         .logo-symbol {
-            height: 120px !important; /* TRIPLED from 40px to 120px */
+            height: 360px !important; /* 9X from 40px to 360px */
             width: auto;
-            max-width: 150px;
+            max-width: 400px;
         }
 
         .logo-text {
-            height: 90px !important; /* TRIPLED from 30px to 90px */
+            height: 270px !important; /* 9X from 30px to 270px */
             width: auto;
-            max-width: 400px; /* Very wide for text logo */
+            max-width: 800px; /* Extremely wide for text logo */
         }
 
         .nav-links {
@@ -181,7 +184,7 @@
             text-decoration: none;
             color: var(--primary-black);
             font-weight: 600;
-            font-size: 1.1rem; /* Slightly larger font */
+            font-size: 1.2rem; /* Larger font */
             transition: color 0.3s ease;
             position: relative;
         }
@@ -207,8 +210,8 @@
 
         /* Specific fix for Get Started button in nav */
         .nav-links .btn-primary {
-            padding: 1rem 2rem;
-            font-size: 1rem;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
             background-color: var(--primary-black);
             color: var(--primary-white) !important;
             border: none;
@@ -222,12 +225,12 @@
             display: none;
             background: none;
             border: none;
-            font-size: 2rem; /* Larger toggle for bigger header */
+            font-size: 2.5rem; /* Larger toggle for massive header */
             cursor: pointer;
             color: var(--primary-black);
         }
 
-        /* Mission Statement - Adjusted for HUGE header */
+        /* Mission Statement - Adjusted for MASSIVE header */
         .mission-statement {
             background-color: var(--accent-blue-light);
             padding: var(--spacing-lg) 0;
@@ -252,7 +255,7 @@
             line-height: 1.8;
         }
 
-        /* Hero Section - Adjusted for HUGE header */
+        /* Hero Section - Adjusted for MASSIVE header */
         .hero {
             padding-top: var(--spacing-lg);
             background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-white) 100%);
@@ -494,7 +497,7 @@
             margin-top: var(--spacing-lg);
         }
 
-        /* Footer */
+        /* Footer - Updated with both logos */
         footer {
             background-color: var(--primary-black);
             color: var(--primary-white);
@@ -511,18 +514,33 @@
         .footer-logo {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-md);
+            align-items: flex-start;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .footer-logo .logo-symbol {
             filter: invert(1);
-            height: 120px !important; /* Matches header size */
+            height: 180px !important; /* Half of header size */
             width: auto;
-            max-width: 150px;
+            max-width: 200px;
+        }
+
+        .footer-logo .logo-text {
+            filter: invert(1);
+            height: 135px !important; /* Half of header size */
+            width: auto;
+            max-width: 400px;
         }
 
         .footer-links h4 {
             margin-bottom: var(--spacing-md);
+            color: var(--primary-white);
         }
 
         .footer-links ul {
@@ -551,22 +569,45 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design for HUGE logos */
-        @media (max-width: 1200px) {
+        /* Responsive Design for MASSIVE logos */
+        @media (max-width: 1400px) {
             .logo-symbol {
-                height: 100px !important;
+                height: 300px !important;
             }
             
             .logo-text {
-                height: 75px !important;
+                height: 225px !important;
             }
             
             body {
-                padding-top: 110px;
+                padding-top: 160px;
             }
             
             header {
-                height: 110px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .logo-symbol {
+                height: 250px !important;
+            }
+            
+            .logo-text {
+                height: 190px !important;
+            }
+            
+            body {
+                padding-top: 140px;
+            }
+            
+            header {
+                height: 140px;
+                padding: 1.5rem 0;
+            }
+            
+            .logo-container {
+                gap: 2rem;
             }
         }
 
@@ -584,33 +625,42 @@
             }
             
             .logo-symbol {
-                height: 90px !important;
+                height: 200px !important;
             }
             
             .logo-text {
-                height: 65px !important;
+                height: 150px !important;
             }
             
+            body {
+                padding-top: 120px;
+            }
+            
+            header {
+                height: 120px;
+                padding: 1.2rem 0;
+            }
+            
+            .logo-container {
+                gap: 1.5rem;
+            }
+            
+            .footer-logo .logo-symbol {
+                height: 100px !important;
+            }
+            
+            .footer-logo .logo-text {
+                height: 75px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
             body {
                 padding-top: 100px;
             }
             
             header {
                 height: 100px;
-            }
-            
-            .logo-container {
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 90px;
-            }
-            
-            header {
-                height: 90px;
                 padding: 1rem 0;
             }
             
@@ -646,15 +696,23 @@
             }
             
             .logo-symbol {
-                height: 80px !important;
+                height: 160px !important;
             }
             
             .logo-text {
-                height: 55px !important;
+                height: 120px !important;
             }
             
             .logo-container {
                 gap: 1rem;
+            }
+            
+            .footer-logo .logo-symbol {
+                height: 80px !important;
+            }
+            
+            .footer-logo .logo-text {
+                height: 60px !important;
             }
         }
 
@@ -671,40 +729,48 @@
                 padding: var(--spacing-lg) 0;
             }
             
+            .logo-symbol {
+                height: 120px !important;
+            }
+            
+            .logo-text {
+                height: 90px !important;
+            }
+            
+            body {
+                padding-top: 90px;
+            }
+            
+            header {
+                height: 90px;
+                padding: 0.75rem 0;
+            }
+            
             .logo-container {
                 gap: 0.75rem;
             }
             
-            .logo-symbol {
-                height: 70px !important;
-            }
-            
-            .logo-text {
-                height: 45px !important;
-            }
-            
-            body {
-                padding-top: 85px;
-            }
-            
-            header {
-                height: 85px;
-                padding: 0.75rem 0;
-            }
-            
             .nav-links .btn-primary {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .footer-logo .logo-symbol {
+                height: 60px !important;
+            }
+            
+            .footer-logo .logo-text {
+                height: 45px !important;
             }
         }
 
         @media (max-width: 480px) {
             .logo-symbol {
-                height: 60px !important;
+                height: 100px !important;
             }
             
             .logo-text {
-                height: 35px !important;
+                height: 75px !important;
             }
             
             body {
@@ -718,6 +784,14 @@
             
             .logo-container {
                 gap: 0.5rem;
+            }
+            
+            .footer-logo .logo-symbol {
+                height: 50px !important;
+            }
+            
+            .footer-logo .logo-text {
+                height: 35px !important;
             }
         }
     </style>
@@ -974,7 +1048,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="COOPER_LOGO.svg" class="logo-symbol" alt="Cooper">
+                    <div class="footer-logo-container">
+                        <img src="COOPER_LOGO.svg" class="logo-symbol" alt="Cooper Symbol">
+                        <img src="COOPER_LOGO_TEXT.svg" class="logo-text" alt="Cooper">
+                    </div>
                     <p>Empowering educators with modern tools & authentic training.</p>
                 </div>
                 
@@ -1090,4 +1167,24 @@
     </script>
 </body>
 </html>
+```
+
+## **Key Changes - Logos are now 9X ORIGINAL SIZE:**
+
+### **Logo Sizes (9X Increase from original):**
+- **Symbol logo**: `40px → 360px` height (9X bigger than original)
+- **Text logo**: `30px → 270px` height (9X bigger than original)
+
+### **Added Text Logo in Footer:**
+- **Footer now displays BOTH logos** (symbol and text)
+- Footer logos are half the size of header logos (180px/135px)
+- Added `.footer-logo-container` for proper layout
+
+### **Header Adjustments:**
+- Header height: `120px → 180px`
+- Body padding-top: `120px → 180px`
+-
+</body>
+</html>
+
 
