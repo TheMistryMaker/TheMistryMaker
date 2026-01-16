@@ -46,7 +46,7 @@
             color: var(--primary-black);
             background-color: var(--primary-white);
             overflow-x: hidden;
-            padding-top: 150px; /* HUGE for MASSIVE logos (9x original) */
+            padding-top: 90px; /* Reduced from 150px for shorter header */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -132,7 +132,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Header & Navigation - MASSIVE LOGOS (9x original) */
+        /* Header & Navigation - SHORTER VERSION */
         header {
             position: fixed;
             top: 0;
@@ -141,8 +141,10 @@
             background-color: var(--primary-white);
             box-shadow: var(--shadow-sm);
             z-index: 1000;
-            padding: 2rem 0; /* Increased padding */
-            height: 180px; /* MASSIVE height for MASSIVE logos */
+            padding: 0.8rem 0; /* Reduced padding for shorter header */
+            height: 80px; /* Much shorter height */
+            display: flex;
+            align-items: center;
         }
 
         .nav-container {
@@ -150,30 +152,29 @@
             justify-content: space-between;
             align-items: center;
             height: 100%;
+            width: 100%;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1rem; /* HUGE gap for MASSIVE logos */
+            gap: 1rem; /* Side by side spacing */
         }
 
-        /* LOGO FIXES - 9X BIGGER THAN ORIGINAL (40px/30px → 360px/270px) */
+        /* LOGO SIZES - Reduced for shorter header */
         .logo-symbol {
-            height: 90px !important; /* 9X from 40px to 360px */
+            height: 45px !important; /* Reduced from 90px */
             width: auto;
-            max-width: 400px;
         }
 
         .logo-text {
-            height: 135px !important; /* 9X from 30px to 270px */
+            height: 30px !important; /* Reduced from 135px */
             width: auto;
-            max-width: 800px; /* Extremely wide for text logo */
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
@@ -182,7 +183,7 @@
             text-decoration: none;
             color: var(--primary-black);
             font-weight: 600;
-            font-size: 1.2rem; /* Larger font */
+            font-size: 1rem; /* Slightly smaller */
             transition: color 0.3s ease;
             position: relative;
         }
@@ -206,10 +207,10 @@
             width: 100%;
         }
 
-        /* Specific fix for Get Started button in nav */
+        /* Get Started button in nav */
         .nav-links .btn-primary {
-            padding: 1.2rem 2.5rem;
-            font-size: 1.1rem;
+            padding: 0.8rem 1.8rem; /* Slightly smaller */
+            font-size: 1rem;
             background-color: var(--primary-black);
             color: var(--primary-white) !important;
             border: none;
@@ -223,12 +224,12 @@
             display: none;
             background: none;
             border: none;
-            font-size: 2.5rem; /* Larger toggle for massive header */
+            font-size: 1.8rem; /* Smaller toggle */
             cursor: pointer;
             color: var(--primary-black);
         }
 
-        /* Mission Statement - Adjusted for MASSIVE header */
+        /* Mission Statement */
         .mission-statement {
             background-color: var(--accent-blue-light);
             padding: var(--spacing-lg) 0;
@@ -253,7 +254,7 @@
             line-height: 1.8;
         }
 
-        /* Hero Section - Adjusted for MASSIVE header */
+        /* Hero Section - Adjusted for shorter header */
         .hero {
             padding-top: var(--spacing-lg);
             background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-white) 100%);
@@ -495,7 +496,7 @@
             margin-top: var(--spacing-lg);
         }
 
-        /* Footer - Updated with both logos */
+        /* Footer - Updated with both logos side by side */
         footer {
             background-color: var(--primary-black);
             color: var(--primary-white);
@@ -516,24 +517,23 @@
             align-items: flex-start;
         }
 
+        /* FOOTER LOGO CONTAINER - Logos side by side just like header */
         .footer-logo-container {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 0.75rem; /* Side by side, similar to header */
         }
 
         .footer-logo .logo-symbol {
             filter: invert(1);
-            height: 180px !important; /* Half of header size */
+            height: 35px !important; /* Reduced size for footer */
             width: auto;
-            max-width: 200px;
         }
 
         .footer-logo .logo-text {
             filter: invert(1);
-            height: 135px !important; /* Half of header size */
+            height: 25px !important; /* Reduced size for footer */
             width: auto;
-            max-width: 400px;
         }
 
         .footer-links h4 {
@@ -567,45 +567,14 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design for MASSIVE logos */
-        @media (max-width: 1400px) {
-            .logo-symbol {
-                height: 300px !important;
-            }
-            
-            .logo-text {
-                height: 225px !important;
-            }
-            
-            body {
-                padding-top: 160px;
-            }
-            
-            header {
-                height: 160px;
-            }
-        }
-
+        /* Responsive Design for shorter header */
         @media (max-width: 1200px) {
-            .logo-symbol {
-                height: 250px !important;
-            }
-            
-            .logo-text {
-                height: 190px !important;
-            }
-            
             body {
-                padding-top: 140px;
+                padding-top: 85px;
             }
             
             header {
-                height: 140px;
-                padding: 1.5rem 0;
-            }
-            
-            .logo-container {
-                gap: 2rem;
+                height: 85px;
             }
         }
 
@@ -622,44 +591,36 @@
                 grid-template-columns: 1fr;
             }
             
-            .logo-symbol {
-                height: 200px !important;
-            }
-            
-            .logo-text {
-                height: 150px !important;
-            }
-            
             body {
-                padding-top: 120px;
+                padding-top: 80px;
             }
             
             header {
-                height: 120px;
-                padding: 1.2rem 0;
+                height: 80px;
+                padding: 0.7rem 0;
             }
             
-            .logo-container {
+            .logo-symbol {
+                height: 40px !important;
+            }
+            
+            .logo-text {
+                height: 28px !important;
+            }
+            
+            .nav-links {
                 gap: 1.5rem;
-            }
-            
-            .footer-logo .logo-symbol {
-                height: 100px !important;
-            }
-            
-            .footer-logo .logo-text {
-                height: 75px !important;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 100px;
+                padding-top: 75px;
             }
             
             header {
-                height: 100px;
-                padding: 1rem 0;
+                height: 75px;
+                padding: 0.6rem 0;
             }
             
             .nav-links {
@@ -694,23 +655,23 @@
             }
             
             .logo-symbol {
-                height: 160px !important;
+                height: 35px !important;
             }
             
             .logo-text {
-                height: 120px !important;
+                height: 25px !important;
             }
             
             .logo-container {
-                gap: 1rem;
+                gap: 0.8rem;
             }
             
             .footer-logo .logo-symbol {
-                height: 80px !important;
+                height: 30px !important;
             }
             
             .footer-logo .logo-text {
-                height: 60px !important;
+                height: 20px !important;
             }
         }
 
@@ -728,68 +689,72 @@
             }
             
             .logo-symbol {
-                height: 120px !important;
+                height: 30px !important;
             }
             
             .logo-text {
-                height: 90px !important;
+                height: 20px !important;
             }
             
             body {
-                padding-top: 90px;
+                padding-top: 70px;
             }
             
             header {
-                height: 90px;
-                padding: 0.75rem 0;
+                height: 70px;
+                padding: 0.5rem 0;
             }
             
             .logo-container {
-                gap: 0.75rem;
+                gap: 0.6rem;
             }
             
             .nav-links .btn-primary {
-                padding: 1rem 2rem;
-                font-size: 1rem;
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
             }
             
             .footer-logo .logo-symbol {
-                height: 60px !important;
+                height: 25px !important;
             }
             
             .footer-logo .logo-text {
-                height: 45px !important;
+                height: 18px !important;
             }
         }
 
         @media (max-width: 480px) {
             .logo-symbol {
-                height: 100px !important;
+                height: 25px !important;
             }
             
             .logo-text {
-                height: 75px !important;
+                height: 18px !important;
             }
             
             body {
-                padding-top: 80px;
+                padding-top: 65px;
             }
             
             header {
-                height: 80px;
-                padding: 0.5rem 0;
+                height: 65px;
+                padding: 0.4rem 0;
             }
             
             .logo-container {
                 gap: 0.5rem;
             }
             
+            .footer-logo-container {
+                gap: 0.5rem;
+            }
+            
             .footer-logo .logo-symbol {
-                height: 50px !important;
+                height: 20px !important;
             }
             
             .footer-logo .logo-text {
-                height: 35px !important;
+                height: 15px !important;
             }
         }
     </style>
@@ -1046,6 +1011,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
+                    <!-- LOGOS SIDE BY SIDE just like header -->
                     <div class="footer-logo-container">
                         <img src="COOPER_LOGO.svg" class="logo-symbol" alt="Cooper Symbol">
                         <img src="COOPER_LOGO_TEXT.svg" class="logo-text" alt="Cooper">
@@ -1165,7 +1131,7 @@
     </script>
 </body>
 </html>
-```
+
 
 
 
