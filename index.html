@@ -3,54 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThemistryMaker | LEGO Star Wars Builder</title>
+    <title>Cooper | Where Teachers Can Be Teachers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-black: #1a1a1a;
+            --primary-white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --accent-blue: #0066cc;
+            --accent-blue-light: #e6f2ff;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --imperial-red: #E10600;
-            --rebel-yellow: #FFE81F;
-            --imperial-gray: #2B2B2B;
-            --rebel-blue: #2A75B3;
-            --light-gray: #F5F5F5;
-            --dark-gray: #1A1A1A;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
             line-height: 1.6;
-            color: #333;
-            background-color: var(--light-gray);
+            color: var(--primary-black);
+            background-color: var(--primary-white);
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Orbitron', sans-serif;
+        h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
-            color: var(--imperial-gray);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.125rem;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--spacing-md);
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-blue);
+            color: var(--primary-white);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--primary-black);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         /* Header & Navigation */
         header {
-            background-color: var(--dark-gray);
-            padding: 1rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-white);
+            box-shadow: var(--shadow-sm);
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
         }
 
         .nav-container {
@@ -59,345 +148,390 @@
             align-items: center;
         }
 
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
         }
 
-        .logo-icon {
-            color: var(--imperial-red);
-            font-size: 2rem;
+        .logo-symbol {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
             font-size: 1.8rem;
-            color: white;
-        }
-
-        .logo-text span {
-            color: var(--rebel-yellow);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
+            font-weight: 800;
+            color: var(--primary-black);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-family: 'Orbitron', sans-serif;
         }
 
-        nav a:hover {
-            color: var(--rebel-yellow);
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-black);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
         }
 
         .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--primary-black);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 6rem 0;
-            text-align: center;
+            padding-top: calc(var(--spacing-xl) + 80px);
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-white) 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
         }
 
-        .hero h1 span {
-            color: var(--rebel-yellow);
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: var(--spacing-lg);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: #ddd;
-        }
-
-        .affiliations {
+        .hero-buttons {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
-        .affiliation-badge {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            border: 2px solid var(--rebel-yellow);
-            font-weight: bold;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
+        /* Section Common */
+        .section-header {
             text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
         }
 
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background-color: var(--imperial-red);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+            margin-top: var(--spacing-sm);
         }
 
-        /* Gallery */
-        .gallery-filter {
+        /* Problem Section */
+        .problem {
+            background-color: var(--light-gray);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .problem-card {
+            background-color: var(--primary-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .problem-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-black);
+        }
+
+        /* Solution Section */
+        .solution-tabs {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .filter-btn {
-            background-color: var(--imperial-gray);
-            color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--imperial-red);
-            transform: translateY(-2px);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
-            border-radius: 8px;
+            gap: 1px;
+            margin-bottom: var(--spacing-xl);
+            background-color: var(--medium-gray);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            background-color: white;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .tab-btn {
+            flex: 1;
+            padding: 1.5rem;
+            background-color: var(--primary-white);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .gallery-img {
+        .tab-btn.active {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .solution-image {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .solution-image img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
         }
 
-        .gallery-info {
-            padding: 1.5rem;
-        }
-
-        .gallery-info h3 {
-            margin-bottom: 0.5rem;
-            color: var(--imperial-red);
-        }
-
-        /* About */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .profile-img {
+        .placeholder-image {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Contact */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background-color: var(--dark-gray);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .contact-info h3 {
-            color: var(--rebel-yellow);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-detail {
+            height: 100%;
+            background: linear-gradient(45deg, var(--medium-gray) 25%, var(--light-gray) 25%, var(--light-gray) 50%, var(--medium-gray) 50%, var(--medium-gray) 75%, var(--light-gray) 75%, var(--light-gray) 100%);
+            background-size: 40px 40px;
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-icon {
-            color: var(--imperial-red);
-            font-size: 1.2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-icon {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+
+        .feature-list i {
+            color: var(--accent-blue);
+            margin-top: 4px;
+        }
+
+        /* Story Section */
+        .story {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+        }
+
+        .story .section-header {
+            color: var(--primary-white);
+        }
+
+        .story-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: var(--spacing-xl);
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
-            text-decoration: none;
+            background-color: var(--accent-blue);
         }
 
-        .social-icon:hover {
-            background-color: var(--imperial-red);
-            transform: scale(1.1);
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            width: 2px;
+            height: calc(100% + var(--spacing-xl));
+            background-color: var(--medium-gray);
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Roboto', sans-serif;
+        .timeline-item:last-child:after {
+            display: none;
         }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        /* CTA Section */
+        .cta {
+            background-color: var(--accent-blue-light);
+            text-align: center;
         }
 
-        .submit-btn {
-            background-color: var(--imperial-red);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--dark-gray);
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark-gray);
-            color: white;
-            padding: 3rem 0 1.5rem;
-            text-align: center;
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
         }
 
         .footer-logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
         }
 
-        .footer-logo span {
-            color: var(--rebel-yellow);
+        .footer-logo .logo-symbol {
+            background-color: var(--primary-white);
+            color: var(--primary-black);
+        }
+
+        .footer-links h4 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
         }
 
         .copyright {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--dark-gray);
+            color: var(--medium-gray);
             font-size: 0.9rem;
-            color: #aaa;
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
+            h1 {
+                font-size: 2.8rem;
             }
-
-            .profile-img {
-                max-width: 300px;
-                margin: 0 auto;
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .solution-content {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+            .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-white);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                box-shadow: var(--shadow-md);
+                gap: var(--spacing-md);
             }
 
-            nav ul.active {
+            .nav-links.active {
                 display: flex;
             }
 
@@ -405,28 +539,28 @@
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-buttons, .cta-buttons {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .hero-buttons .btn, .cta-buttons .btn {
+                width: 100%;
+                text-align: center;
             }
         }
 
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
+            h1 {
+                font-size: 2.2rem;
             }
-
-            .affiliations {
-                flex-direction: column;
-                align-items: center;
+            
+            h2 {
+                font-size: 1.8rem;
             }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 2rem;
+            
+            section {
+                padding: var(--spacing-lg) 0;
             }
         }
     </style>
@@ -435,128 +569,219 @@
     <!-- Header -->
     <header>
         <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-cubes logo-icon"></i>
-                <div class="logo-text">Themistry<span>Maker</span></div>
+            <div class="logo-container">
+                <!-- Replace with your logo symbol -->
+                <div class="logo-symbol">C</div>
+                <!-- Replace with your text logo -->
+                <a href="#" class="logo-text">COOPER</a>
             </div>
             
             <button class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </button>
             
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solution">Our Solution</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#contact" class="btn btn-primary">Get Started</a></li>
+            </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Samir Mistry <span>LEGO Star Wars Builder</span></h1>
-            <p>Master builder specializing in custom LEGO Star Wars creations, MOCs, and large-scale dioramas. Proud member of TOROLUG (Toronto LEGO Users Group) and creator behind ThemistryMaker.</p>
-            
-            <div class="affiliations">
-                <div class="affiliation-badge">TOROLUG Member</div>
-                <div class="affiliation-badge">LEGO Certified Professional</div>
-                <div class="affiliation-badge">ThemistryMaker</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-title">My LEGO Star Wars Creations</h2>
-            
-            <div class="gallery-filter">
-                <button class="filter-btn active" data-filter="all">All Builds</button>
-                <button class="filter-btn" data-filter="moc">MOCs</button>
-                <button class="filter-btn" data-filter="diorama">Dioramas</button>
-                <button class="filter-btn" data-filter="ship">Starships</button>
-                <button class="filter-btn" data-filter="display">Display Pieces</button>
-            </div>
-            
-            <div class="gallery-grid" id="galleryContainer">
-                <!-- Gallery items will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About The Builder</h2>
-            
-            <div class="about-content">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1587654780298-8c6d6b2c8b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Samir Mistry - LEGO Builder" class="profile-img">
-                </div>
-                <div class="about-text">
-                    <p>Hello! I'm Samir Mistry, also known as <strong>ThemistryMaker</strong> in the LEGO community. My passion for LEGO and Star Wars began as a child and has evolved into a serious artistic pursuit over the past decade.</p>
-                    
-                    <p>As an active member of <strong>TOROLUG</strong> (Toronto LEGO Users Group), I participate in exhibitions, collaborative builds, and community outreach programs that bring LEGO art to the public. Our group showcases at events like the Toronto Fan Expo and local library displays.</p>
-                    
-                    <p>My specialty is creating <strong>custom LEGO Star Wars models</strong> that blend film accuracy with imaginative "what-if" scenarios. From massive Imperial Star Destroyers to intricate Mos Eisley dioramas, each build tells a story and pushes the boundaries of what's possible with LEGO bricks.</p>
-                    
-                    <p>When I'm not building, I'm designing new creations in Stud.io, mentoring aspiring builders, or hunting for rare LEGO pieces to complete my next project.</p>
+            <div class="hero-content">
+                <h1>Where Teachers Can Be Teachers</h1>
+                <p class="hero-tagline">Empowering educators with AI-powered tools and authentic training to transform STEM education.</p>
+                <p>Cooper merges <strong>AI instructional tools</strong> with <strong>high-quality product training</strong> to restore teacher confidence and rekindle student curiosity in science and technology.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#solution" class="btn btn-primary">Explore Our Solution</a>
+                    <a href="#story" class="btn btn-secondary">Our Origin Story</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-header">
+                <h2>The Crisis in Science Education</h2>
+                <p class="section-subtitle">Outdated models, declining interest, and teacher burnout are creating a systemic challenge</p>
+            </div>
             
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-user contact-icon"></i>
-                        <span>Samir Mistry (ThemistryMaker)</span>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-history"></i>
                     </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-users contact-icon"></i>
-                        <span>TOROLUG Member (Toronto LEGO Users Group)</span>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope contact-icon"></i>
-                        <span>contact@themistrymaker.com</span>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <span>Toronto, Ontario, Canada</span>
-                    </div>
-                    
-                    <h3 style="margin-top: 2rem;">Follow My Work</h3>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-flickr"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    </div>
+                    <h3>Outdated Models</h3>
+                    <p>The 5E instructional model is over 35 years old, designed before the digital age. Teachers need modern tools that reflect today's classroom realities.</p>
                 </div>
                 
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Subject" required>
-                        <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-battery-quarter"></i>
+                    </div>
+                    <h3>Teacher Burnout</h3>
+                    <p>Educators spend countless hours planning from scratch, leaving little energy for the high-touch mentoring that truly inspires students.</p>
                 </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line-down"></i>
+                    </div>
+                    <h3>Declining Student Interest</h3>
+                    <p>STEM engagement metrics show troubling declines as traditional methods fail to connect with digital-native learners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Dual-Platform Solution</h2>
+                <p class="section-subtitle">AI-powered tools meet premium training to create a complete support ecosystem</p>
+            </div>
+            
+            <div class="solution-tabs">
+                <button class="tab-btn active" data-tab="platform">The AI Co-Pilot</button>
+                <button class="tab-btn" data-tab="training">The Training Library</button>
+            </div>
+            
+            <!-- Platform Tab -->
+            <div class="tab-content active" id="platform-content">
+                <div class="solution-content">
+                    <div>
+                        <h3>The Cooper Digital Platform</h3>
+                        <p>An AI-augmented lesson planning system designed to work alongside teachers, not replace them.</p>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-bolt"></i>
+                                <div>
+                                    <strong>5E Model Integration:</strong> AI tools embedded within Engage, Explore, Explain, Elaborate, Evaluate framework
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <strong>Rapid Idea Generation:</strong> Generate activities, explanations, and assessments in minutes, not hours
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-user-tie"></i>
+                                <div>
+                                    <strong>Teacher-Centered Design:</strong> Free up time for mentorship, discussion, and personalized feedback
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <strong>Stop Planning from Scratch:</strong> Start inspiring with confidence on Monday morning
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="solution-image">
+                        <div class="placeholder-image">
+                            AI Platform Interface Preview
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Training Tab -->
+            <div class="tab-content" id="training-content">
+                <div class="solution-content">
+                    <div>
+                        <h3>The Cooper Training Library</h3>
+                        <p>Premium, product-specific training that ensures teachers have both the tools and the knowledge to use them effectively.</p>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-video"></i>
+                                <div>
+                                    <strong>High-Quality Video Courses:</strong> Expert training on specific educational kits (LEGO Education, robotics, lab equipment)
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-key"></i>
+                                <div>
+                                    <strong>Unique Unlock Model:</strong> Full training libraries unlocked when schools purchase qualifying kits through our partners
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-handshake"></i>
+                                <div>
+                                    <strong>Maximized ROI:</strong> Ensures schools get full value from their educational technology investments
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <div>
+                                    <strong>Built by Practitioners:</strong> All training developed by experienced educators who understand classroom realities
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="solution-image">
+                        <div class="placeholder-image">
+                            Training Video Preview
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Story: Built in a Dojo, Born from a Mission</h2>
+                <p class="section-subtitle">From personal passion to scalable platform—the journey of Cooper</p>
+            </div>
+            
+            <div class="story-timeline">
+                <div class="timeline-item">
+                    <h3>The Foundation</h3>
+                    <p>Cooper was founded on a simple truth: great teaching requires great support. Named for a loyal friend, our company embodies partnership and commitment to educators.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>The Dojo R&D Lab</h3>
+                    <p>Our launch is funded and informed by our founder's first venture: a traditional karate dojo. This serves as our initial funding engine, live research lab, and physical embodiment of our educational philosophy—discipline, growth, and mastery.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>The Vision Realized</h3>
+                    <p>We're building Cooper from the ground up with authenticity, testing methods and features in a real community setting before scaling to classrooms worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join the Education Revolution</h2>
+                <p class="section-subtitle">Whether you're a teacher, school administrator, or educational product company, let's transform STEM education together.</p>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-accent">For Schools: Start a Pilot</a>
+                <a href="#" class="btn btn-primary">For Partners: Collaborate With Us</a>
+                <a href="#" class="btn btn-secondary">For Teachers: Join Waitlist</a>
             </div>
         </div>
     </section>
@@ -565,14 +790,45 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Themistry<span>Maker</span></div>
-                <div>LEGO® Star Wars Builder & TOROLUG Member</div>
-                <div>© <span id="currentYear"></span> Samir Mistry. All rights reserved.</div>
+                <div class="footer-logo">
+                    <div class="logo-symbol">C</div>
+                    <div class="logo-text">COOPER</div>
+                    <p>Empowering educators with AI & authentic training.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#solution">AI Co-Pilot</a></li>
+                        <li><a href="#solution">Training Library</a></li>
+                        <li><a href="#">For Teachers</a></li>
+                        <li><a href="#">For Schools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#problem">The Problem</a></li>
+                        <li><a href="#">Blog & Resources</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
             </div>
             
             <div class="copyright">
-                <p>LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site. Star Wars © & ™ Lucasfilm Ltd.</p>
-                <p>This is a fan-created portfolio website for Samir Mistry (ThemistryMaker).</p>
+                <p>© 2023 Cooper. All rights reserved. | Built by teachers, for teachers. Founded in a dojo.</p>
             </div>
         </div>
     </footer>
@@ -580,152 +836,73 @@
     <script>
         // Mobile Navigation Toggle
         const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.getElementById('navLinks');
         
         mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileToggle.innerHTML = navMenu.classList.contains('active') 
+            navLinks.classList.toggle('active');
+            mobileToggle.innerHTML = navLinks.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
         
         // Close mobile menu when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+                navLinks.classList.remove('active');
                 mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Gallery Data
-        const galleryItems = [
-            {
-                id: 1,
-                title: "Imperial Star Destroyer MOC",
-                category: "ship",
-                description: "Custom 5,000-piece Star Destroyer with interior detailing",
-                image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 2,
-                title: "Mos Eisley Cantina Diorama",
-                category: "diorama",
-                description: "Detailed diorama featuring the iconic Cantina scene",
-                image: "https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 3,
-                title: "U-Wing Fighter Custom Build",
-                category: "moc",
-                description: "Original design inspired by Rogue One",
-                image: "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 4,
-                title: "Death Star Display",
-                category: "display",
-                description: "Sectional display of the Death Star interior",
-                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 5,
-                title: "Hoth Battle Scene",
-                category: "diorama",
-                description: "Large-scale diorama of the Battle of Hoth",
-                image: "https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 6,
-                title: "TIE Advanced x1",
-                category: "ship",
-                description: "Darth Vader's custom TIE Fighter",
-                image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 7,
-                title: "Jedi Temple Archives",
-                category: "moc",
-                description: "Original concept of Coruscant Jedi Temple interior",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                id: 8,
-                title: "TOROLUG Collaborative Display",
-                category: "display",
-                description: "Group build exhibited at Toronto Fan Expo 2023",
-                image: "https://images.unsplash.com/photo-1562976540-1502c2145186?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-            }
-        ];
+        // Tab Functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
         
-        // Gallery Filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const galleryContainer = document.getElementById('galleryContainer');
-        
-        function displayGalleryItems(filter = 'all') {
-            galleryContainer.innerHTML = '';
-            
-            const filteredItems = filter === 'all' 
-                ? galleryItems 
-                : galleryItems.filter(item => item.category === filter);
-            
-            filteredItems.forEach(item => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.setAttribute('data-category', item.category);
-                
-                galleryItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="gallery-img">
-                    <div class="gallery-info">
-                        <h3>${item.title}</h3>
-                        <p>${item.description}</p>
-                    </div>
-                `;
-                
-                galleryContainer.appendChild(galleryItem);
-            });
-        }
-        
-        // Initialize gallery
-        displayGalleryItems();
-        
-        // Add event listeners to filter buttons
-        filterButtons.forEach(button => {
+        tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Get tab target
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
                 button.classList.add('active');
                 
-                // Filter gallery
-                const filter = button.getAttribute('data-filter');
-                displayGalleryItems(filter);
+                // Show corresponding content
+                document.getElementById(`${tabId}-content`).classList.add('active');
             });
         });
         
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon. May the Force be with you!');
-            contactForm.reset();
-        });
-        
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
         // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                if(targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
         });
     </script>
 </body>
 </html>
+
