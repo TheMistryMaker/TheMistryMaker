@@ -154,25 +154,28 @@
             gap: 1rem;
         }
 
+        /* LOGO SECTION - REPLACE THESE WITH YOUR SVG/JPEG FILES */
         .logo-symbol {
-            width: 40px;
             height: 40px;
-            background-color: var(--primary-black);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-white);
-            font-weight: 700;
-            font-size: 1.2rem;
+            width: auto;
+            /* Replace with: <img src="your-logo-symbol.svg" class="logo-symbol" alt="Cooper Symbol"> */
         }
 
         .logo-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-black);
-            text-decoration: none;
+            height: 30px;
+            width: auto;
+            /* Replace with: <img src="your-logo-text.svg" class="logo-text" alt="Cooper"> */
         }
+        
+        /* Temporary placeholder styling - remove when adding your logos */
+        .logo-placeholder {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        /* END LOGO SECTION */
 
         .nav-links {
             display: flex;
@@ -215,6 +218,32 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--primary-black);
+        }
+
+        /* Mission Statement */
+        .mission-statement {
+            background-color: var(--accent-blue-light);
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-top: -1px;
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-content h3 {
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .mission-content p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.8;
         }
 
         /* Hero Section */
@@ -387,6 +416,18 @@
             margin-top: 4px;
         }
 
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent-blue-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin-top: var(--spacing-md);
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
         /* Story Section */
         .story {
             background-color: var(--primary-black);
@@ -468,8 +509,9 @@
         }
 
         .footer-logo .logo-symbol {
-            background-color: var(--primary-white);
-            color: var(--primary-black);
+            filter: invert(1);
+            height: 40px;
+            width: auto;
         }
 
         .footer-links h4 {
@@ -570,10 +612,21 @@
     <header>
         <div class="container nav-container">
             <div class="logo-container">
-                <!-- Replace with your logo symbol -->
-                <div class="logo-symbol">C</div>
-                <!-- Replace with your text logo -->
-                <a href="#" class="logo-text">COOPER</a>
+                <!-- 
+                REPLACE THIS SECTION WITH YOUR LOGO FILES:
+                
+                Option 1: SVG files (recommended):
+                <img src="your-logo-symbol.svg" class="logo-symbol" alt="Cooper Symbol">
+                <img src="your-logo-text.svg" class="logo-text" alt="Cooper">
+                
+                Option 2: JPEG/PNG files:
+                <img src="your-logo-symbol.png" class="logo-symbol" alt="Cooper Symbol">
+                <img src="your-logo-text.png" class="logo-text" alt="Cooper">
+                -->
+                
+                <!-- TEMPORARY PLACEHOLDERS - REMOVE WHEN ADDING YOUR LOGOS -->
+                <div class="logo-placeholder">[Your Logo Symbol]</div>
+                <div class="logo-placeholder">[Your Text Logo]</div>
             </div>
             
             <button class="mobile-toggle" id="mobileToggle">
@@ -590,13 +643,24 @@
         </div>
     </header>
 
+    <!-- Mission Statement -->
+    <section class="mission-statement">
+        <div class="container">
+            <div class="mission-content">
+                <h3>Our Mission</h3>
+                <p>To provide teachers all over the world with a friend to help reduce workload and manage new advancements in educational technology and engagement so teachers can focus on doing what they do best, teaching.</p>
+                <p>One day we hope that anyone can be a teacher if they have us as a friend.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1>Where Teachers Can Be Teachers</h1>
-                <p class="hero-tagline">Empowering educators with AI-powered tools and authentic training to transform STEM education.</p>
-                <p>Cooper merges <strong>AI instructional tools</strong> with <strong>high-quality product training</strong> to restore teacher confidence and rekindle student curiosity in science and technology.</p>
+                <p class="hero-tagline">Empowering educators with modern tools and authentic training to transform education.</p>
+                <p>Cooper provides <strong>locally-powered teaching tools</strong> alongside <strong>high-quality product training</strong> to restore teacher confidence and rekindle student curiosity in science and technology subjects.</p>
                 
                 <div class="hero-buttons">
                     <a href="#solution" class="btn btn-primary">Explore Our Solution</a>
@@ -610,7 +674,7 @@
     <section class="problem" id="problem">
         <div class="container">
             <div class="section-header">
-                <h2>The Crisis in Science Education</h2>
+                <h2>The Crisis in Education</h2>
                 <p class="section-subtitle">Outdated models, declining interest, and teacher burnout are creating a systemic challenge</p>
             </div>
             
@@ -633,10 +697,10 @@
                 
                 <div class="problem-card">
                     <div class="problem-icon">
-                        <i class="fas fa-chart-line-down"></i>
+                        <i class="fas fa-user-shield"></i>
                     </div>
-                    <h3>Declining Student Interest</h3>
-                    <p>STEM engagement metrics show troubling declines as traditional methods fail to connect with digital-native learners.</p>
+                    <h3>Privacy Concerns</h3>
+                    <p>Cloud-based solutions often compromise student data privacy. Teachers need tools that work locally without sending sensitive information online.</p>
                 </div>
             </div>
         </div>
@@ -646,13 +710,13 @@
     <section id="solution">
         <div class="container">
             <div class="section-header">
-                <h2>Our Dual-Platform Solution</h2>
-                <p class="section-subtitle">AI-powered tools meet premium training to create a complete support ecosystem</p>
+                <h2>Our Complete Solution</h2>
+                <p class="section-subtitle">Modern teaching tools meet premium training in a privacy-focused ecosystem</p>
             </div>
             
             <div class="solution-tabs">
-                <button class="tab-btn active" data-tab="platform">The AI Co-Pilot</button>
-                <button class="tab-btn" data-tab="training">The Training Library</button>
+                <button class="tab-btn active" data-tab="platform">Teaching Platform</button>
+                <button class="tab-btn" data-tab="training">Training Library</button>
             </div>
             
             <!-- Platform Tab -->
@@ -660,39 +724,50 @@
                 <div class="solution-content">
                     <div>
                         <h3>The Cooper Digital Platform</h3>
-                        <p>An AI-augmented lesson planning system designed to work alongside teachers, not replace them.</p>
+                        <p>A modern lesson planning system designed to work entirely offline, keeping teacher and student data 100% private and secure.</p>
                         
                         <ul class="feature-list">
                             <li>
+                                <i class="fas fa-laptop-house"></i>
+                                <div>
+                                    <strong>Completely Local Operation:</strong> No internet required. All data stays on your device.
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Private Marking Assistant:</strong> Local processing for grading support without sending data anywhere.
+                                </div>
+                            </li>
+                            <li>
                                 <i class="fas fa-bolt"></i>
                                 <div>
-                                    <strong>5E Model Integration:</strong> AI tools embedded within Engage, Explore, Explain, Elaborate, Evaluate framework
+                                    <strong>5E Model Integration:</strong> Modern tools embedded within Engage, Explore, Explain, Elaborate, Evaluate framework.
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-lightbulb"></i>
                                 <div>
-                                    <strong>Rapid Idea Generation:</strong> Generate activities, explanations, and assessments in minutes, not hours
+                                    <strong>Rapid Idea Generation:</strong> Generate activities, explanations, and assessments in minutes, not hours.
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-user-tie"></i>
                                 <div>
-                                    <strong>Teacher-Centered Design:</strong> Free up time for mentorship, discussion, and personalized feedback
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-rocket"></i>
-                                <div>
-                                    <strong>Stop Planning from Scratch:</strong> Start inspiring with confidence on Monday morning
+                                    <strong>Teacher-Centered Design:</strong> Free up time for mentorship, discussion, and personalized feedback.
                                 </div>
                             </li>
                         </ul>
+                        
+                        <div class="privacy-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>100% Local & Private · No Network Required</span>
+                        </div>
                     </div>
                     
                     <div class="solution-image">
                         <div class="placeholder-image">
-                            AI Platform Interface Preview
+                            Platform Interface Preview
                         </div>
                     </div>
                 </div>
@@ -709,25 +784,31 @@
                             <li>
                                 <i class="fas fa-video"></i>
                                 <div>
-                                    <strong>High-Quality Video Courses:</strong> Expert training on specific educational kits (LEGO Education, robotics, lab equipment)
+                                    <strong>High-Quality Video Courses:</strong> Expert training on specific educational kits (LEGO Education, robotics, lab equipment).
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-key"></i>
                                 <div>
-                                    <strong>Unique Unlock Model:</strong> Full training libraries unlocked when schools purchase qualifying kits through our partners
+                                    <strong>Unique Unlock Model:</strong> Full training libraries unlocked when schools purchase qualifying kits through our partners.
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-handshake"></i>
                                 <div>
-                                    <strong>Maximized ROI:</strong> Ensures schools get full value from their educational technology investments
+                                    <strong>Maximized ROI:</strong> Ensures schools get full value from their educational technology investments.
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <div>
-                                    <strong>Built by Practitioners:</strong> All training developed by experienced educators who understand classroom realities
+                                    <strong>Built by Practitioners:</strong> All training developed by experienced educators who understand classroom realities.
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-download"></i>
+                                <div>
+                                    <strong>Download & Use Anywhere:</strong> Training materials available for offline use in any classroom environment.
                                 </div>
                             </li>
                         </ul>
@@ -775,7 +856,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Join the Education Revolution</h2>
-                <p class="section-subtitle">Whether you're a teacher, school administrator, or educational product company, let's transform STEM education together.</p>
+                <p class="section-subtitle">Whether you're a teacher, school administrator, or educational product company, let's transform education together.</p>
             </div>
             
             <div class="cta-buttons">
@@ -791,15 +872,18 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <div class="logo-symbol">C</div>
-                    <div class="logo-text">COOPER</div>
-                    <p>Empowering educators with AI & authentic training.</p>
+                    <!-- 
+                    REPLACE THIS WITH YOUR LOGO FOR THE FOOTER:
+                    <img src="your-logo-full.svg" class="logo-symbol" alt="Cooper">
+                    -->
+                    <div class="logo-placeholder" style="background-color: white; color: black;">[Your Logo]</div>
+                    <p>Empowering educators with modern tools & authentic training.</p>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Platform</h4>
                     <ul>
-                        <li><a href="#solution">AI Co-Pilot</a></li>
+                        <li><a href="#solution">Digital Platform</a></li>
                         <li><a href="#solution">Training Library</a></li>
                         <li><a href="#">For Teachers</a></li>
                         <li><a href="#">For Schools</a></li>
@@ -829,6 +913,7 @@
             
             <div class="copyright">
                 <p>© 2023 Cooper. All rights reserved. | Built by teachers, for teachers. Founded in a dojo.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">All data processed locally · No network connection required · 100% Privacy First</p>
             </div>
         </div>
     </footer>
