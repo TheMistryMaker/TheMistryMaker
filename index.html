@@ -45,7 +45,7 @@
             color: var(--primary-black);
             background-color: var(--primary-white);
             overflow-x: hidden;
-            padding-top: 90px; /* Adjusted for larger header */
+            padding-top: 120px; /* Increased for HUGE logos */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -98,7 +98,7 @@
 
         .btn-primary {
             background-color: var(--primary-black);
-            color: var(--primary-white) !important; /* Force white text */
+            color: var(--primary-white) !important;
         }
 
         .btn-primary:hover {
@@ -131,7 +131,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Header & Navigation - FIXED with larger logos */
+        /* Header & Navigation - HUGE LOGOS */
         header {
             position: fixed;
             top: 0;
@@ -140,8 +140,8 @@
             background-color: var(--primary-white);
             box-shadow: var(--shadow-sm);
             z-index: 1000;
-            padding: 1.5rem 0; /* Increased padding */
-            height: 90px; /* Increased height for larger logos */
+            padding: 1.5rem 0;
+            height: 120px; /* HUGE height for HUGE logos */
         }
 
         .nav-container {
@@ -154,20 +154,20 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1.5rem; /* Increased gap */
+            gap: 2rem; /* Increased gap for HUGE logos */
         }
 
-        /* LOGO FIXES - Made MUCH larger */
+        /* LOGO FIXES - 3X BIGGER THAN ORIGINAL (40px/30px → 120px/90px) */
         .logo-symbol {
-            height: 80px !important; /* DOUBLED from 40px to 80px */
+            height: 120px !important; /* TRIPLED from 40px to 120px */
             width: auto;
-            max-width: 100px; 
+            max-width: 150px;
         }
 
         .logo-text {
-            height: 60px !important; /* DOUBLED from 30px to 60px */
+            height: 90px !important; /* TRIPLED from 30px to 90px */
             width: auto;
-            max-width: 300px; /* Wider max-width */
+            max-width: 400px; /* Very wide for text logo */
         }
 
         .nav-links {
@@ -181,7 +181,7 @@
             text-decoration: none;
             color: var(--primary-black);
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Slightly larger font */
             transition: color 0.3s ease;
             position: relative;
         }
@@ -207,8 +207,8 @@
 
         /* Specific fix for Get Started button in nav */
         .nav-links .btn-primary {
-            padding: 0.8rem 1.8rem;
-            font-size: 0.95rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
             background-color: var(--primary-black);
             color: var(--primary-white) !important;
             border: none;
@@ -222,12 +222,12 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 2rem; /* Larger toggle for bigger header */
             cursor: pointer;
             color: var(--primary-black);
         }
 
-        /* Mission Statement - Adjusted for header */
+        /* Mission Statement - Adjusted for HUGE header */
         .mission-statement {
             background-color: var(--accent-blue-light);
             padding: var(--spacing-lg) 0;
@@ -252,7 +252,7 @@
             line-height: 1.8;
         }
 
-        /* Hero Section - Adjusted for header */
+        /* Hero Section - Adjusted for HUGE header */
         .hero {
             padding-top: var(--spacing-lg);
             background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-white) 100%);
@@ -516,9 +516,9 @@
 
         .footer-logo .logo-symbol {
             filter: invert(1);
-            height: 80px !important; /* Matches header size */
+            height: 120px !important; /* Matches header size */
             width: auto;
-            max-width: 100px;
+            max-width: 150px;
         }
 
         .footer-links h4 {
@@ -551,7 +551,25 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Responsive Design for HUGE logos */
+        @media (max-width: 1200px) {
+            .logo-symbol {
+                height: 100px !important;
+            }
+            
+            .logo-text {
+                height: 75px !important;
+            }
+            
+            body {
+                padding-top: 110px;
+            }
+            
+            header {
+                height: 110px;
+            }
+        }
+
         @media (max-width: 992px) {
             h1 {
                 font-size: 2.8rem;
@@ -566,29 +584,33 @@
             }
             
             .logo-symbol {
-                height: 70px !important;
+                height: 90px !important;
             }
             
             .logo-text {
-                height: 50px !important;
+                height: 65px !important;
             }
             
             body {
-                padding-top: 85px;
+                padding-top: 100px;
             }
             
             header {
-                height: 85px;
+                height: 100px;
+            }
+            
+            .logo-container {
+                gap: 1.5rem;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 80px;
+                padding-top: 90px;
             }
             
             header {
-                height: 80px;
+                height: 90px;
                 padding: 1rem 0;
             }
             
@@ -624,11 +646,11 @@
             }
             
             .logo-symbol {
-                height: 65px !important;
+                height: 80px !important;
             }
             
             .logo-text {
-                height: 45px !important;
+                height: 55px !important;
             }
             
             .logo-container {
@@ -654,7 +676,31 @@
             }
             
             .logo-symbol {
-                height: 55px !important;
+                height: 70px !important;
+            }
+            
+            .logo-text {
+                height: 45px !important;
+            }
+            
+            body {
+                padding-top: 85px;
+            }
+            
+            header {
+                height: 85px;
+                padding: 0.75rem 0;
+            }
+            
+            .nav-links .btn-primary {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-symbol {
+                height: 60px !important;
             }
             
             .logo-text {
@@ -662,12 +708,16 @@
             }
             
             body {
-                padding-top: 75px;
+                padding-top: 80px;
             }
             
             header {
-                height: 75px;
-                padding: 0.75rem 0;
+                height: 80px;
+                padding: 0.5rem 0;
+            }
+            
+            .logo-container {
+                gap: 0.5rem;
             }
         }
     </style>
@@ -1040,3 +1090,4 @@
     </script>
 </body>
 </html>
+
