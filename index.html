@@ -45,6 +45,7 @@
             color: var(--primary-black);
             background-color: var(--primary-white);
             overflow-x: hidden;
+            padding-top: 80px; /* Added to prevent header overlap */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -130,7 +131,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Header & Navigation */
+        /* Header & Navigation - FIXED */
         header {
             position: fixed;
             top: 0;
@@ -140,12 +141,14 @@
             box-shadow: var(--shadow-sm);
             z-index: 1000;
             padding: 1rem 0;
+            height: 80px; /* Fixed height */
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .logo-container {
@@ -154,14 +157,17 @@
             gap: 1rem;
         }
 
+        /* LOGO FIXES - Made larger */
         .logo-symbol {
-            height: 40px;
+            height: 60px; /* Increased from 40px */
             width: auto;
+            max-width: 80px; /* Added max-width for control */
         }
 
         .logo-text {
-            height: 30px;
+            height: 45px; /* Increased from 30px */
             width: auto;
+            max-width: 200px; /* Added max-width for control */
         }
 
         .nav-links {
@@ -207,13 +213,12 @@
             color: var(--primary-black);
         }
 
-        /* Mission Statement */
+        /* Mission Statement - Adjusted for header */
         .mission-statement {
             background-color: var(--accent-blue-light);
             padding: var(--spacing-lg) 0;
             border-top: 1px solid rgba(0,0,0,0.1);
             border-bottom: 1px solid rgba(0,0,0,0.1);
-            margin-top: -1px;
         }
 
         .mission-content {
@@ -233,9 +238,9 @@
             line-height: 1.8;
         }
 
-        /* Hero Section */
+        /* Hero Section - Adjusted for header */
         .hero {
-            padding-top: calc(var(--spacing-xl) + 80px);
+            padding-top: var(--spacing-lg); /* Reduced padding since body has padding-top */
             background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-white) 100%);
             min-height: 90vh;
             display: flex;
@@ -497,8 +502,9 @@
 
         .footer-logo .logo-symbol {
             filter: invert(1);
-            height: 40px;
+            height: 60px; /* Increased to match header */
             width: auto;
+            max-width: 80px;
         }
 
         .footer-links h4 {
@@ -544,9 +550,26 @@
             .solution-content {
                 grid-template-columns: 1fr;
             }
+            
+            .logo-symbol {
+                height: 50px;
+            }
+            
+            .logo-text {
+                height: 35px;
+            }
         }
 
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px; /* Adjusted for mobile */
+            }
+            
+            header {
+                height: 70px;
+                padding: 0.5rem 0;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -577,6 +600,14 @@
                 width: 100%;
                 text-align: center;
             }
+            
+            .logo-symbol {
+                height: 45px;
+            }
+            
+            .logo-text {
+                height: 30px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -590,6 +621,18 @@
             
             section {
                 padding: var(--spacing-lg) 0;
+            }
+            
+            .logo-container {
+                gap: 0.5rem;
+            }
+            
+            .logo-symbol {
+                height: 40px;
+            }
+            
+            .logo-text {
+                height: 25px;
             }
         }
     </style>
@@ -940,8 +983,10 @@
                 const targetSection = document.querySelector(targetId);
                 
                 if(targetSection) {
+                    // Adjusted for fixed header
+                    const headerHeight = document.querySelector('header').offsetHeight;
                     window.scrollTo({
-                        top: targetSection.offsetTop - 80,
+                        top: targetSection.offsetTop - headerHeight,
                         behavior: 'smooth'
                     });
                 }
